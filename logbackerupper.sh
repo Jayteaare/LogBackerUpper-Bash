@@ -22,8 +22,8 @@ sleep 3
 echo "MD5 hashes of files within $USERDIR" >> hashed_logs.txt
 for file in $(find $USERDIR -type f)
 do
-        ls /var/log | grep .log* | cp $file "/var/backups/logbackerupper/logs/${file##*/}-$(date +"%m-%d-%y-%r")"
-        ls /var/log | grep .log* | md5sum $file >> /var/backups/logbackerupper/hashed_logs.txt
+        ls $USERDIR | grep .log* | cp $file "/var/backups/logbackerupper/logs/${file##*/}-$(date +"%m-%d-%y-%r")"
+        ls $USERDIR | grep .log* | md5sum $file >> /var/backups/logbackerupper/hashed_logs.txt
 done
 
 echo "Process complete."
